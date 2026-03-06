@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phosphor Icons – CSS Variables</title>
+  <link rel="canonical" href="https://coliff.github.io/phosphor-css-vars/" />
+  <script>
+    (function () {
+      var stored = localStorage.getItem("theme");
+      var dark = stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    })();
+  </script>
+  <script>
+    (function () {
+      var d = location.pathname.replace(/\/[^/]*$/, "/") || "/";
+      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-regular.css">');
+      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-fill.css">');
+      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-duotone.css">');
+      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-thin.css">');
+      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-light.css">');
+      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-bold.css">');
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+    id="prism-dark" media="none" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta name="author" content="Christian Oliff" />
+  <meta name="fediverse:creator" content="@christianoliff@mastodon.social" />
+  <meta name="description" content="Test page for Phosphor Icons CSS variables" />
+</head>
+
+<body>
+  <header>
+    <h1>Phosphor Icons – CSS Variables</h1>
+  </header>
+  <main>
+    <p>
+      A 100% pure CSS icon implementation using CSS custom properties and SVG masks for
+      <a href="https://phosphoricons.com/">Phosphor Icons</a>.
+    </p>
+    <ul>
+      <li>No JavaScript, dependencies, SVGs or webfonts needed!</li>
+      <li>100% accessible, fast and easy-to-use</li>
+      <li>Includes all 1513 icons in thin, light, fill, bold, regular and duotone sets</li>
+      <li>Icons can be colored any color by setting a <code>background-color:</code></li>
+      <li>Icon can be sized any size by setting height and width of the div (the icon scales to fit using
+        <code>mask-size: contain;</code>)</li>
+    </ul>
+
+    <h2 id="how-to-use">How to use</h2>
+    <section class="usage">
+      <ol>
+        <li>Include one or more stylesheets (regular, fill, and/or duotone):</li>
+      </ol>
+      <pre><code class="language-html">&lt;link rel="stylesheet" href="phosphor-icons-regular.css"&gt;
+ &lt;link rel="stylesheet" href="phosphor-icons-fill.css"&gt;
+ &lt;link rel="stylesheet" href="phosphor-icons-duotone.css"&gt;
+ &lt;link rel="stylesheet" href="phosphor-icons-thin.css"&gt;
+ &lt;link rel="stylesheet" href="phosphor-icons-light.css"&gt;
+ &lt;link rel="stylesheet" href="phosphor-icons-bold.css"&gt;</code></pre>
+      <p>
+        Each icon is exposed as a CSS variable
+        <code>--ph-icon-&lt;name&gt;</code> whose value is a
+        <code>url("data:image/svg+xml;utf8,...")</code> data URI.
+      </p>
+
+      <p>
+        <strong>As a mask (recommended, so the icon inherits text color):</strong>
+      </p>
+      <pre><code class="language-css">.my-icon {
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  mask-image: var(--ph-icon-heart);
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}</code></pre>
+      <p>
+        Example with mask (icon color follows text):
+        <span class="icon-sample" style="color: #c00"></span>
+        <span class="icon-sample" style="color: #06c"></span>
+      </p>
+
+      <p><strong>As a background image:</strong></p>
+      <pre><code class="language-css">.my-icon {
+  width: 24px;
+  height: 24px;
+  background-image: var(--ph-icon-heart);
+  background-size: contain;
+  background-position: center;
+}</code></pre>
+      <p>
+        Example with background image (icons will display as black):
+        <span class="icon-sample-bg"></span>
+      </p>
+    </section>
+
+    <h2 id="icon-gallery">Icon gallery</h2>
+    <p class="count">Loading…</p>
+
+    <div class="search-container">
+      <search class="search-wrap">
+        <div class="style-select" id="style-select">
+          <select id="style" aria-label="Icon style" class="style-select__native" tabindex="-1" aria-hidden="true">
+            <option value="thin">Thin</option>
+            <option value="light">Light</option>
+            <option value="regular" selected>Regular</option>
+            <option value="bold">Bold</option>
+            <option value="fill">Fill</option>
+            <option value="duotone">Duotone</option>
+          </select>
+          <button type="button" class="style-select__trigger" id="style-trigger" aria-haspopup="listbox"
+            aria-expanded="false" aria-label="Icon style">
+            <span class="style-select__icon style-select__icon--regular" aria-hidden="true"></span>
+            <span class="style-select__label">Regular</span>
+            <span class="style-select__chevron" aria-hidden="true"></span>
+          </button>
+          <div class="style-select__list" id="style-list" role="listbox" aria-label="Icon style" hidden>
+            <div class="style-select__option" role="option" data-value="thin" tabindex="-1"><span
+                class="style-select__option-icon style-select__icon--thin" aria-hidden="true"></span>Thin</div>
+            <div class="style-select__option" role="option" data-value="light" tabindex="-1"><span
+                class="style-select__option-icon style-select__icon--light" aria-hidden="true"></span>Light</div>
+            <div class="style-select__option" role="option" data-value="regular" tabindex="-1"><span
+                class="style-select__option-icon style-select__icon--regular" aria-hidden="true"></span>Regular</div>
+            <div class="style-select__option" role="option" data-value="bold" tabindex="-1"><span
+                class="style-select__option-icon style-select__icon--bold" aria-hidden="true"></span>Bold</div>
+            <div class="style-select__option" role="option" data-value="fill" tabindex="-1"><span
+                class="style-select__option-icon style-select__icon--fill" aria-hidden="true"></span>Fill</div>
+            <div class="style-select__option" role="option" data-value="duotone" tabindex="-1"><span
+                class="style-select__option-icon style-select__icon--duotone" aria-hidden="true"></span>Duotone</div>
+          </div>
+        </div>
+        <label for="search">Filter by name:</label>
+        <input type="search" id="search" placeholder="e.g. heart, arrow, user…" aria-label="Filter icons by name" />
+      </search>
+    </div>
+    <div class="grid-container">
+      <div class="grid" id="grid"></div>
+    </div>
+  </main>
+
+  <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">🌙</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

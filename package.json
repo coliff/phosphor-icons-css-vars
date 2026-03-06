@@ -1,0 +1,37 @@
+{
+  "name": "phosphor-css-vars",
+  "version": "1.0.0",
+  "description": "CSS variables for Phosphor Icons",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coliff/phosphor-css-vars.git"
+  },
+  "homepage": "https://github.com/coliff/phosphor-css-vars#readme",
+  "bugs": {
+    "url": "https://github.com/coliff/phosphor-css-vars/issues"
+  },
+  "funding": "https://github.com/sponsors/coliff",
+  "scripts": {
+    "build": "node build-css.mjs",
+    "lint": "npm run lint-html && npm run lint-css && npm run lint-js",
+    "lint-css": "npx stylelint \"**/*.css\"",
+    "lint-html": "npx htmlhint **/*.html",
+    "lint-js": "npx eslint@8 **/*.mjs --fix",
+    "pa11y": "npx pa11y https://coliff.github.io/phosphor-css-vars/",
+    "prettier": "npx prettier --write \"docs/**/*.{html,css,js}\"",
+    "serve": "npx serve docs",
+    "spellcheck": "npx cspell \"**/*.html\" --no-progress"
+  },
+  "devDependencies": {
+    "svgo": "4.0.1",
+    "yauzl": "3.2.0"
+  },
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "volta": {
+    "node": "22.22.0"
+  }
+}

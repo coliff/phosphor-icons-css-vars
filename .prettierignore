@@ -1,0 +1,8 @@
+.cspell.json
+*.min.*
+docs/phosphor-icons-regular.css
+docs/phosphor-icons-fill.css
+docs/phosphor-icons-duotone.css
+docs/icon-list.json
+dist/
+

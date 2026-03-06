@@ -1,0 +1,18 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "ignorePaths": [
+    "*.css",
+    "*.json"
+  ],
+  "words": [
+    "cooldown",
+    "Csvg",
+    "fediverse",
+    "htmlhint",
+    "nvmrc",
+    "Oliff",
+    "webfonts",
+    "ZIZMOR"
+  ]
+}

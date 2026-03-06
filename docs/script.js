@@ -47,8 +47,8 @@
     const style = styleSelect.value;
     const byStyle = applyStyleFilter(allNames, style);
     const q = searchInput.value.trim();
-    if (q.length < 3) {
-      countEl.textContent = byStyle.length + " " + style + " icons. Type 3 or more characters to search.";
+    if (q.length < 1) {
+      countEl.textContent = byStyle.length + " " + style + " icons. Type 1 or more characters to search.";
     } else {
       countEl.textContent = filtered.length + " icons.";
     }
@@ -58,7 +58,7 @@
     const style = styleSelect.value;
     const byStyle = applyStyleFilter(allNames, style);
     const q = searchInput.value.trim().toLowerCase();
-    filtered = q.length >= 3 ? byStyle.filter((n) => n.toLowerCase().includes(q)) : [];
+    filtered = q.length >= 1 ? byStyle.filter((n) => n.toLowerCase().includes(q)) : [];
     updateCount();
     render();
   }
@@ -66,7 +66,7 @@
   function syncUrlFromSearch() {
     const q = searchInput.value.trim();
     const url = new URL(location.href);
-    if (q.length >= 3) {
+    if (q.length >= 1) {
       url.searchParams.set("q", q);
     } else {
       url.searchParams.delete("q");

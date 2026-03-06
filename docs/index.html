@@ -13,18 +13,13 @@
       document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
     })();
   </script>
-  <script>
-    (function () {
-      var d = location.pathname.replace(/\/[^/]*$/, "/") || "/";
-      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-regular.css">');
-      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-fill.css">');
-      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-duotone.css">');
-      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-thin.css">');
-      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-light.css">');
-      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-bold.css">');
-    })();
-  </script>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="phosphor-icons-regular.css" />
+  <link rel="stylesheet" href="phosphor-icons-fill.css" />
+  <link rel="stylesheet" href="phosphor-icons-duotone.css" />
+  <link rel="stylesheet" href="phosphor-icons-thin.css" />
+  <link rel="stylesheet" href="phosphor-icons-light.css" />
+  <link rel="stylesheet" href="phosphor-icons-bold.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-tomorrow.min.css"
     id="prism-dark" media="none" />
@@ -32,6 +27,10 @@
   <meta name="author" content="Christian Oliff" />
   <meta name="fediverse:creator" content="@christianoliff@mastodon.social" />
   <meta name="description" content="Test page for Phosphor Icons CSS variables" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-markup.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-css.min.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -138,7 +137,8 @@
           </div>
         </div>
         <label for="search">Filter by name:</label>
-        <input type="search" id="search" placeholder="e.g. heart, arrow, user…" aria-label="Filter icons by name" />
+        <input type="search" id="search" placeholder="e.g. heart, arrow, user…" minlength="1"
+          aria-label="Filter icons by name" />
       </search>
     </div>
     <div class="grid-container">
@@ -147,11 +147,6 @@
   </main>
 
   <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">🌙</button>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-markup.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-css.min.js"></script>
-  <script src="script.js"></script>
 </body>
 
 </html>

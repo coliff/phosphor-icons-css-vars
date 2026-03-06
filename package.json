@@ -1,18 +1,19 @@
 {
   "name": "phosphor-css-vars",
   "version": "1.0.0",
-  "description": "CSS variables for Phosphor Icons",
-  "license": "MIT",
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/coliff/phosphor-css-vars.git"
-  },
+  "description": "CSS variables for Phosphor Icons",
   "homepage": "https://github.com/coliff/phosphor-css-vars#readme",
   "bugs": {
     "url": "https://github.com/coliff/phosphor-css-vars/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coliff/phosphor-css-vars.git"
+  },
   "funding": "https://github.com/sponsors/coliff",
+  "license": "MIT",
+  "author": "Christian Oliff (https://christianoliff.com)",
   "scripts": {
     "build": "node build-css.mjs",
     "lint": "npm run lint-html && npm run lint-css && npm run lint-js",

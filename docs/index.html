@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Phosphor Icons – CSS Variables</title>
-  <link rel="canonical" href="https://coliff.github.io/phosphor-css-vars/" />
   <script>
     (function () {
       var stored = localStorage.getItem("theme");
@@ -13,25 +12,25 @@
       document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
     })();
   </script>
-  <script>
-    (function () {
-      var d = location.pathname.replace(/\/[^/]*$/, "/") || "/";
-      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-regular.css">');
-      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-fill.css">');
-      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-duotone.css">');
-      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-thin.css">');
-      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-light.css">');
-      document.write('<link rel="stylesheet" href="' + d + 'phosphor-icons-bold.css">');
-    })();
-  </script>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="phosphor-icons-regular.css" />
+  <link rel="stylesheet" href="phosphor-icons-fill.css" />
+  <link rel="stylesheet" href="phosphor-icons-duotone.css" />
+  <link rel="stylesheet" href="phosphor-icons-thin.css" />
+  <link rel="stylesheet" href="phosphor-icons-light.css" />
+  <link rel="stylesheet" href="phosphor-icons-bold.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-tomorrow.min.css"
     id="prism-dark" media="none" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <meta name="author" content="Christian Oliff" />
+  <link rel="canonical" href="https://coliff.github.io/phosphor-css-vars/" />
   <meta name="fediverse:creator" content="@christianoliff@mastodon.social" />
   <meta name="description" content="Test page for Phosphor Icons CSS variables" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-markup.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-css.min.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -97,13 +96,13 @@
   background-position: center;
 }</code></pre>
       <p>
-        Example with background image (icons will display as black):
+        Example with background image:
         <span class="icon-sample-bg"></span>
       </p>
     </section>
 
     <h2 id="icon-gallery">Icon gallery</h2>
-    <p class="count">Loading…</p>
+    <p class="count" role="status">Loading…</p>
 
     <div class="search-container">
       <search class="search-wrap">
@@ -138,7 +137,8 @@
           </div>
         </div>
         <label for="search">Filter by name:</label>
-        <input type="search" id="search" placeholder="e.g. heart, arrow, user…" aria-label="Filter icons by name" />
+        <input type="search" id="search" placeholder="e.g. heart, arrow, user…" minlength="1"
+          aria-label="Filter icons by name" />
       </search>
     </div>
     <div class="grid-container">
@@ -147,11 +147,6 @@
   </main>
 
   <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">🌙</button>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-markup.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-css.min.js"></script>
-  <script src="script.js"></script>
 </body>
 
 </html>

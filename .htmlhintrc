@@ -13,6 +13,7 @@
   "html-lang-require": true,
   "id-unique": true,
   "input-requires-label": true,
+  "link-rel-canonical-require": true,
   "main-require": true,
   "meta-charset-require": true,
   "meta-description-require": true,

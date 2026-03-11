@@ -44,7 +44,7 @@
     </p>
     <ul>
       <li>No JavaScript, dependencies, SVGs or webfonts needed!</li>
-      <li>100% accessible, fast and easy-to-use</li>
+      <li>Accessible, fast and easy-to-use</li>
       <li>Includes all 1513 icons in thin, light, fill, bold, regular and duotone sets</li>
       <li>Icons can be colored any color by setting a <code>background-color:</code></li>
       <li>Icon can be sized any size by setting height and width of the div (the icon scales to fit using
@@ -66,11 +66,19 @@
       <p>
         Each icon is exposed as a CSS variable
         <code>--ph-icon-&lt;name&gt;</code> whose value is a
-        <code>url("data:image/svg+xml;utf8,...")</code> data URI.
+        <code>url("data:image/svg+xml;utf8,...")</code> data URI. The stylesheet also includes classes so you can use icons like a webfont.
+      </p>
+
+      <p><strong>With classes (like a webfont):</strong></p>
+      <pre><code class="language-html">&lt;i class="ph ph-smiley"&gt;&lt;/i&gt;</code></pre>
+      <p>
+        Use the base class <code>ph</code> plus the icon class <code>ph-&lt;name&gt;</code>. Icons scale with font-size and inherit text color. Example:
+        <i class="ph ph-smiley" style="color: #c00" aria-hidden="true"></i>
+        <i class="ph ph-smiley" style="color: #06c" aria-hidden="true"></i>
       </p>
 
       <p>
-        <strong>As a mask (recommended, so the icon inherits text color):</strong>
+        <strong>As a mask (custom element, icon inherits text color):</strong>
       </p>
       <pre><code class="language-css">.my-icon {
   width: 24px;

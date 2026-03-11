@@ -291,15 +291,9 @@ h2 {
   background-color: var(--card-hover);
 }
 
-.grid-item .icon {
-  background-color: currentColor;
-  height: 3rem;
+.grid-item .ph {
+  font-size: 3rem;
   margin-bottom: 0.25rem;
-  mask-image: var(--icon-var);
-  mask-position: center;
-  mask-repeat: no-repeat;
-  mask-size: contain;
-  width: 3rem;
 }
 
 .count {

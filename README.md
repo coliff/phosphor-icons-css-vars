@@ -1,5 +1,7 @@
 # Phosphor Icons in CSS
 
+[![npm version](https://img.shields.io/npm/v/phosphor-icons-css-vars.svg)](https://www.npmjs.com/package/phosphor-icons-css-vars)
+[![LICENSE: MIT](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE)
 A 100% pure CSS icon implementation of [Phosphor Icons](https://phosphoricons.com/) using CSS custom properties and SVG masks
 
 - No JavaScript, dependencies, SVGs or webfonts needed!
@@ -30,6 +32,16 @@ By using CSS custom properties the icons can also be used as background-images i
 <link rel="stylesheet" href="phosphor-icons-bold.css" />
 ```
 
+Each stylesheet includes CSS variables and ready-made classes so you can use icons like a webfont:
+
+```html
+<i class="ph ph-smiley"></i>
+```
+
+Use the base class <code>ph</code> plus the icon class <code>ph-&lt;name&gt;</code> (e.g. <code>ph-heart</code>, <code>ph-arrow-right</code>). Icons scale with <code>font-size</code> and inherit text color via <code>currentColor</code>.
+
+For custom styling, use the CSS variables directly:
+
 ```css
 .my-icon {
   width: 24px;
@@ -40,7 +52,11 @@ By using CSS custom properties the icons can also be used as background-images i
 }
 ```
 
-Each stylesheet is approx 800KB (80KB gzipped) and includes all 1513 icons. I recommend removing icons you don't need to reduce the file size and improve performance.
+Each stylesheet is approx 900 KB (90 KB gzipped) and includes all 1513 icons. **I recommend removing icons you don't need to reduce the file size and improve performance.**
+
+## Browser support
+
+`mask-image` is supported unprefixed in all modern browsers (Chrome 120, Safari 15.4, Firefox 53 — [caniuse](https://caniuse.com/?search=mask-image)). To widen support (e.g. older Safari), use [Autoprefixer](https://github.com/postcss/autoprefixer) to add `-webkit-mask-image` alongside `mask-image`. Because this uses CSS variables, the same variables are referenced from `:root` without increasing filesize. Neat!
 
 ## License
 

@@ -1,38 +1,35 @@
 {
-  "name": "phosphor-css-vars",
+  "name": "phosphor-icons-css-vars",
   "version": "1.0.0",
   "private": true,
   "description": "CSS variables for Phosphor Icons",
-  "homepage": "https://github.com/coliff/phosphor-css-vars#readme",
+  "homepage": "https://github.com/coliff/phosphor-icons-css-vars#readme",
   "bugs": {
-    "url": "https://github.com/coliff/phosphor-css-vars/issues"
+    "url": "https://github.com/coliff/phosphor-icons-css-vars/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coliff/phosphor-css-vars.git"
+    "url": "git+https://github.com/coliff/phosphor-icons-css-vars.git"
   },
-  "funding": "https://github.com/sponsors/coliff",
   "license": "MIT",
   "author": "Christian Oliff (https://christianoliff.com)",
   "scripts": {
     "build": "node build-css.mjs",
     "lint": "npm run lint-html && npm run lint-css && npm run lint-js",
-    "lint-css": "npx stylelint \"**/*.css\"",
+    "lint-css": "npx stylelint \"**/*.css\" --fix",
     "lint-html": "npx htmlhint **/*.html",
     "lint-js": "npx eslint@8 **/*.mjs --fix",
-    "pa11y": "npx pa11y https://coliff.github.io/phosphor-css-vars/",
+    "pa11y": "npx pa11y https://coliff.github.io/phosphor-icons-css-vars/",
     "prettier": "npx prettier --write \"docs/**/*.{html,css,js}\"",
     "serve": "npx serve docs",
     "spellcheck": "npx cspell \"**/*.html\" --no-progress"
   },
   "devDependencies": {
+    "clean-css": "5.3.3",
     "svgo": "4.0.1",
     "yauzl": "3.2.0"
   },
-  "engines": {
-    "node": ">=22.22.0"
-  },
   "volta": {
-    "node": "22.22.0"
+    "node": "24.10.0"
   }
 }

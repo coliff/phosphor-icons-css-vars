@@ -26,13 +26,12 @@
     const fragment = document.createDocumentFragment();
     for (let i = 0; i < filtered.length; i++) {
       const name = filtered[i];
-      const varName = "--ph-icon-" + name;
       const div = document.createElement("div");
       div.className = "grid-item";
       div.title = "Click to copy name";
-      const icon = document.createElement("span");
-      icon.className = "icon";
-      icon.style.setProperty("--icon-var", "var(" + varName + ")");
+      const icon = document.createElement("i");
+      icon.className = "ph ph-" + name;
+      icon.setAttribute("aria-hidden", "true");
       const label = document.createElement("span");
       label.textContent = name;
       div.appendChild(icon);

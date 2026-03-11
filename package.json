@@ -1,7 +1,7 @@
 {
   "name": "phosphor-icons-css-vars",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "CSS variables for Phosphor Icons",
   "homepage": "https://github.com/coliff/phosphor-icons-css-vars#readme",
   "bugs": {

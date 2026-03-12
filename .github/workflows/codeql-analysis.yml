@@ -14,7 +14,7 @@ jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
-    if: github.repository == 'coliff/bootstrap-show-password-toggle'
+    if: github.repository == 'coliff/phosphor-icons-css-vars'
     permissions:
       actions: read
       contents: read

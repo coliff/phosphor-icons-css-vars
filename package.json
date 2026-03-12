@@ -18,6 +18,7 @@
     "lint-css": "npx stylelint \"**/*.css\" --fix",
     "lint-html": "npx htmlhint **/*.html",
     "lint-js": "npx eslint@8 **/*.mjs --fix",
+    "lint-markdown": "npx markdownlint-cli \"README.md\" --fix",
     "pa11y": "npx pa11y https://coliff.github.io/phosphor-icons-css-vars/",
     "prettier": "npx prettier --write \"docs/**/*.{html,css,js}\"",
     "serve": "npx serve docs",

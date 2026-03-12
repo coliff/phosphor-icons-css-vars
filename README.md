@@ -2,7 +2,8 @@
 
 [![npm version](https://img.shields.io/npm/v/phosphor-icons-css-vars.svg)](https://www.npmjs.com/package/phosphor-icons-css-vars)
 [![LICENSE: MIT](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE)
-A 100% pure CSS icon implementation of [Phosphor Icons](https://phosphoricons.com/) using CSS custom properties and SVG masks
+
+**A 100% pure CSS icon implementation of [Phosphor Icons](https://phosphoricons.com/) using CSS custom properties and SVG masks**
 
 - No JavaScript, dependencies, SVGs or webfonts needed!
 - 100% accessible, fast and easy-to-use
@@ -24,12 +25,12 @@ By using CSS custom properties the icons can also be used as background-images i
 ## Usage
 
 ```html
-<link rel="stylesheet" href="phosphor-icons-regular.css" />
-<link rel="stylesheet" href="phosphor-icons-fill.css" />
-<link rel="stylesheet" href="phosphor-icons-duotone.css" />
-<link rel="stylesheet" href="phosphor-icons-thin.css" />
-<link rel="stylesheet" href="phosphor-icons-light.css" />
-<link rel="stylesheet" href="phosphor-icons-bold.css" />
+<link rel="stylesheet" href="phosphor-icons-regular.min.css" />
+<link rel="stylesheet" href="phosphor-icons-fill.min.css" />
+<link rel="stylesheet" href="phosphor-icons-duotone.min.css" />
+<link rel="stylesheet" href="phosphor-icons-thin.min.css" />
+<link rel="stylesheet" href="phosphor-icons-light.min.css" />
+<link rel="stylesheet" href="phosphor-icons-bold.min.css" />
 ```
 
 Each stylesheet includes CSS variables and ready-made classes so you can use icons like a webfont:

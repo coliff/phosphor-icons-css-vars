@@ -16,7 +16,7 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'dependabot[bot]' }}
+    if: github.repository == 'coliff/phosphor-icons-css-vars'
 
     steps:
       - name: Checkout Code

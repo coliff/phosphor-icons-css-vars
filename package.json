@@ -27,7 +27,7 @@
   "devDependencies": {
     "clean-css": "5.3.3",
     "svgo": "4.0.1",
-    "yauzl": "3.2.0"
+    "yauzl": "3.2.1"
   },
   "volta": {
     "node": "24.10.0"

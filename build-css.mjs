@@ -80,12 +80,20 @@ function slugFromPath(entryPath) {
   return slug;
 }
 
+/** Strip invisible viewport rect that some source SVGs include (saves bytes in CSS). */
+function stripViewportPath(svg) {
+  return svg.replace(
+    /<path\s+(?:fill="none"\s+d="M0 0h256v256H0z"|d="M0 0h256v256H0z"\s+fill="none")\s*\/?>/gi,
+    ""
+  );
+}
+
 function minifySvg(svg, pathHint = "") {
   const result = optimize(svg, {
     path: pathHint,
     js2svg: { pretty: false },
   });
-  return result.data;
+  return stripViewportPath(result.data);
 }
 
 function escapeSvgForCssUrl(svg) {

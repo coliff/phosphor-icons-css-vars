@@ -1,0 +1,2 @@
+# npm uses this instead of .gitignore when present.
+# We only publish dist/ (see package.json "files"); list exclusions here if needed.

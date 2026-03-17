@@ -1,6 +1,6 @@
 {
   "name": "phosphor-icons-css-vars",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CSS variables for Phosphor Icons",
   "homepage": "https://github.com/coliff/phosphor-icons-css-vars#readme",
   "bugs": {
@@ -12,6 +12,9 @@
   },
   "license": "MIT",
   "author": "Christian Oliff (https://christianoliff.com)",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "node build-css.mjs",
     "lint": "npm run lint-html && npm run lint-css && npm run lint-js",

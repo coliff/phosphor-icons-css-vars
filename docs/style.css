@@ -39,6 +39,16 @@ h1 {
   font-size: 1.8rem;
 }
 
+.badges {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0;
+}
+
+.badges img {
+  display: block;
+}
+
 h2 {
   font-size: 1.3rem;
 }

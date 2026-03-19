@@ -55,6 +55,10 @@ For custom styling, use the CSS variables directly:
 
 Each stylesheet is approx 900 KB (90 KB gzipped) and includes all 1513 icons. **I recommend removing icons you don't need to reduce the file size and improve performance.**
 
+## Demo and test page
+
+[https://coliff.github.io/phosphor-icons-css-vars/](https://coliff.github.io/phosphor-icons-css-vars/)
+
 ## Browser support
 
 `mask-image` is supported unprefixed in all modern browsers (Chrome 120, Safari 15.4, Firefox 53 — [caniuse](https://caniuse.com/?search=mask-image)). To widen support (e.g. older Safari), use [Autoprefixer](https://github.com/postcss/autoprefixer) to add `-webkit-mask-image` alongside `mask-image`. Because this uses CSS variables, the same variables are referenced from `:root` without increasing filesize. Neat!

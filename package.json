@@ -18,7 +18,7 @@
   "scripts": {
     "build": "node build-css.mjs",
     "lint": "npm run lint-html && npm run lint-css && npm run lint-js",
-    "lint-css": "npx stylelint \"**/*.css\" --fix f verbose",
+    "lint-css": "npx stylelint \"**/*.css\" --fix --formatter verbose",
     "lint-html": "npx htmlhint **/*.html",
     "lint-js": "npx eslint@8 **/*.mjs --fix",
     "lint-markdown": "npx markdownlint-cli \"*.md\" --fix",

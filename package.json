@@ -1,6 +1,6 @@
 {
   "name": "phosphor-icons-css-vars",
-  "version": "0.0.2",
+  "version": "2.1.0",
   "description": "CSS variables for Phosphor Icons",
   "homepage": "https://github.com/coliff/phosphor-icons-css-vars#readme",
   "bugs": {
@@ -18,12 +18,12 @@
   "scripts": {
     "build": "node build-css.mjs",
     "lint": "npm run lint-html && npm run lint-css && npm run lint-js",
-    "lint-css": "npx stylelint \"**/*.css\" --fix",
+    "lint-css": "npx stylelint \"**/*.css\" --fix f verbose",
     "lint-html": "npx htmlhint **/*.html",
     "lint-js": "npx eslint@8 **/*.mjs --fix",
-    "lint-markdown": "npx markdownlint-cli \"README.md\" --fix",
+    "lint-markdown": "npx markdownlint-cli \"*.md\" --fix",
     "pa11y": "npx pa11y https://coliff.github.io/phosphor-icons-css-vars/",
-    "prettier": "npx prettier --write \"docs/**/*.{html,css,js}\"",
+    "prettier": "npx prettier --write \"**/*.{css,html,js,json,mjs,yml}\"",
     "serve": "npx serve docs",
     "spellcheck": "npx cspell \"**/*.html\" --no-progress"
   },

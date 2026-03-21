@@ -47,7 +47,11 @@
     const byStyle = applyStyleFilter(allNames, style);
     const q = searchInput.value.trim();
     if (q.length < 1) {
-      countEl.textContent = byStyle.length + " " + style + " icons. Type 1 or more characters to search.";
+      countEl.textContent =
+        byStyle.length +
+        " " +
+        style +
+        " icons. Type 1 or more characters to search.";
     } else {
       countEl.textContent = filtered.length + " icons.";
     }
@@ -57,7 +61,8 @@
     const style = styleSelect.value;
     const byStyle = applyStyleFilter(allNames, style);
     const q = searchInput.value.trim().toLowerCase();
-    filtered = q.length >= 1 ? byStyle.filter((n) => n.toLowerCase().includes(q)) : [];
+    filtered =
+      q.length >= 1 ? byStyle.filter((n) => n.toLowerCase().includes(q)) : [];
     updateCount();
     render();
   }
@@ -90,7 +95,8 @@
     const optionEls = styleList.querySelectorAll(".style-select__option");
 
     function getLabel(value) {
-      return nativeSelect.querySelector('option[value="' + value + '"]').textContent;
+      return nativeSelect.querySelector('option[value="' + value + '"]')
+        .textContent;
     }
 
     function syncTrigger() {
@@ -100,7 +106,10 @@
       label.textContent = getLabel(value);
       icon.className = "style-select__icon style-select__icon--" + value;
       styleList.querySelectorAll(".style-select__option").forEach((opt) => {
-        opt.setAttribute("aria-selected", opt.getAttribute("data-value") === value);
+        opt.setAttribute(
+          "aria-selected",
+          opt.getAttribute("data-value") === value,
+        );
       });
     }
 
@@ -109,7 +118,7 @@
       requestAnimationFrame(() => {
         styleSelectEl.setAttribute("data-open", "true");
         styleTrigger.setAttribute("aria-expanded", "true");
-        const current = styleList.querySelector("[aria-selected=\"true\"]");
+        const current = styleList.querySelector('[aria-selected="true"]');
         if (current) current.focus();
       });
     }
@@ -117,10 +126,14 @@
     function close() {
       styleSelectEl.setAttribute("data-open", "false");
       styleTrigger.setAttribute("aria-expanded", "false");
-      styleList.addEventListener("transitionend", () => {
-        styleList.hidden = true;
-        styleTrigger.focus();
-      }, { once: true });
+      styleList.addEventListener(
+        "transitionend",
+        () => {
+          styleList.hidden = true;
+          styleTrigger.focus();
+        },
+        { once: true },
+      );
     }
 
     function choose(value) {
@@ -139,7 +152,9 @@
     });
 
     optionEls.forEach((opt) => {
-      opt.addEventListener("click", () => choose(opt.getAttribute("data-value")));
+      opt.addEventListener("click", () =>
+        choose(opt.getAttribute("data-value")),
+      );
       opt.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -169,7 +184,10 @@
     });
 
     document.addEventListener("mousedown", (e) => {
-      if (styleSelectEl.getAttribute("data-open") === "true" && !styleSelectEl.contains(e.target)) {
+      if (
+        styleSelectEl.getAttribute("data-open") === "true" &&
+        !styleSelectEl.contains(e.target)
+      ) {
         close();
       }
     });
@@ -198,7 +216,7 @@
           label.textContent = original;
         }, 1500);
       },
-      () => { }
+      () => {},
     );
   });
 
@@ -215,7 +233,8 @@
       syncUrlFromSearch();
     })
     .catch((e) => {
-      countEl.textContent = "Could not load icon list. Run npm run build first.";
+      countEl.textContent =
+        "Could not load icon list. Run npm run build first.";
       console.error(e);
     });
 })();
@@ -226,11 +245,18 @@
   function setLabel() {
     var isDark = document.documentElement.getAttribute("data-theme") === "dark";
     toggle.textContent = isDark ? "☀️" : "🌙";
-    toggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+    toggle.setAttribute(
+      "aria-label",
+      isDark ? "Switch to light mode" : "Switch to dark mode",
+    );
   }
   setLabel();
   var prismDark = document.getElementById("prism-dark");
-  if (prismDark) prismDark.media = document.documentElement.getAttribute("data-theme") === "dark" ? "all" : "none";
+  if (prismDark)
+    prismDark.media =
+      document.documentElement.getAttribute("data-theme") === "dark"
+        ? "all"
+        : "none";
   toggle.addEventListener("click", function () {
     var isDark = document.documentElement.getAttribute("data-theme") === "dark";
     var next = isDark ? "light" : "dark";

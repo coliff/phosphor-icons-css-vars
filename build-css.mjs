@@ -26,20 +26,33 @@ const TEMP_DIR = path.join(tmpdir(), "phosphor-css-vars-build");
 
 function download(url) {
   return new Promise((resolve, reject) => {
-    https.get(url, (res) => {
-      if (res.statusCode === 302 || res.statusCode === 301) {
-        return download(res.headers.location).then(resolve).catch(reject);
-      }
-      if (res.statusCode !== 200) {
-        reject(new Error(`Download failed: ${res.statusCode} ${res.statusMessage}`));
-        return;
-      }
-      resolve(res);
-    }).on("error", reject);
+    https
+      .get(url, (res) => {
+        if (res.statusCode === 302 || res.statusCode === 301) {
+          return download(res.headers.location).then(resolve).catch(reject);
+        }
+        if (res.statusCode !== 200) {
+          reject(
+            new Error(
+              `Download failed: ${res.statusCode} ${res.statusMessage}`,
+            ),
+          );
+          return;
+        }
+        resolve(res);
+      })
+      .on("error", reject);
   });
 }
 
-const WEIGHTS_INCLUDED = new Set(["regular", "fill", "duotone", "thin", "light", "bold"]);
+const WEIGHTS_INCLUDED = new Set([
+  "regular",
+  "fill",
+  "duotone",
+  "thin",
+  "light",
+  "bold",
+]);
 
 function weightFromPath(entryPath) {
   const parts = entryPath.replace(/\\/g, "/").split("/");
@@ -84,7 +97,7 @@ function slugFromPath(entryPath) {
 function stripViewportPath(svg) {
   return svg.replace(
     /<path\s+(?:fill="none"\s+d="M0 0h256v256H0z"|d="M0 0h256v256H0z"\s+fill="none")\s*\/?>/gi,
-    ""
+    "",
   );
 }
 
@@ -162,7 +175,9 @@ async function extractSvgsFromZip(zipPath) {
     zipfile.readEntry();
   });
 
-  console.log(`Zip has ${totalCount} total entries, ${svgCount} unique icon variables.`);
+  console.log(
+    `Zip has ${totalCount} total entries, ${svgCount} unique icon variables.`,
+  );
   zipfile.close();
   return svgByVarName;
 }
@@ -233,17 +248,41 @@ async function main() {
   fs.mkdirSync(docsDir, { recursive: true });
 
   const regularCss =
-    ":root {\n" + regular.join("\n") + "\n}\n" + phBase + iconClassRules(regularSlugs);
+    ":root {\n" +
+    regular.join("\n") +
+    "\n}\n" +
+    phBase +
+    iconClassRules(regularSlugs);
   const fillCss =
-    ":root {\n" + fill.join("\n") + "\n}\n" + phBase + iconClassRules(fillSlugs);
+    ":root {\n" +
+    fill.join("\n") +
+    "\n}\n" +
+    phBase +
+    iconClassRules(fillSlugs);
   const duotoneCss =
-    ":root {\n" + duotone.join("\n") + "\n}\n" + phBase + iconClassRules(duotoneSlugs);
+    ":root {\n" +
+    duotone.join("\n") +
+    "\n}\n" +
+    phBase +
+    iconClassRules(duotoneSlugs);
   const thinCss =
-    ":root {\n" + thin.join("\n") + "\n}\n" + phBase + iconClassRules(thinSlugs);
+    ":root {\n" +
+    thin.join("\n") +
+    "\n}\n" +
+    phBase +
+    iconClassRules(thinSlugs);
   const lightCss =
-    ":root {\n" + light.join("\n") + "\n}\n" + phBase + iconClassRules(lightSlugs);
+    ":root {\n" +
+    light.join("\n") +
+    "\n}\n" +
+    phBase +
+    iconClassRules(lightSlugs);
   const boldCss =
-    ":root {\n" + bold.join("\n") + "\n}\n" + phBase + iconClassRules(boldSlugs);
+    ":root {\n" +
+    bold.join("\n") +
+    "\n}\n" +
+    phBase +
+    iconClassRules(boldSlugs);
 
   const files = [
     ["phosphor-icons-regular.css", regularCss, regular.length, "regular"],
@@ -258,24 +297,33 @@ async function main() {
     const minPath = path.join(DIST_DIR, filename.replace(/\.css$/, ".min.css"));
     fs.writeFileSync(filePath, css, "utf8");
     fs.writeFileSync(minPath, minifyCss(css), "utf8");
-    console.log(`Wrote ${filePath} and ${minPath} with ${count} ${label} icon variables.`);
+    console.log(
+      `Wrote ${filePath} and ${minPath} with ${count} ${label} icon variables.`,
+    );
   }
-  const [regularPath, fillPath, duotonePath, thinPath, lightPath, boldPath] = files.map(
-    ([f]) => path.join(DIST_DIR, f)
-  );
+  const [regularPath, fillPath, duotonePath, thinPath, lightPath, boldPath] =
+    files.map(([f]) => path.join(DIST_DIR, f));
 
-  fs.copyFileSync(regularPath, path.join(docsDir, "phosphor-icons-regular.css"));
+  fs.copyFileSync(
+    regularPath,
+    path.join(docsDir, "phosphor-icons-regular.css"),
+  );
   fs.copyFileSync(fillPath, path.join(docsDir, "phosphor-icons-fill.css"));
-  fs.copyFileSync(duotonePath, path.join(docsDir, "phosphor-icons-duotone.css"));
+  fs.copyFileSync(
+    duotonePath,
+    path.join(docsDir, "phosphor-icons-duotone.css"),
+  );
   fs.copyFileSync(thinPath, path.join(docsDir, "phosphor-icons-thin.css"));
   fs.copyFileSync(lightPath, path.join(docsDir, "phosphor-icons-light.css"));
   fs.copyFileSync(boldPath, path.join(docsDir, "phosphor-icons-bold.css"));
 
-  const iconList = [...svgByVarName.keys()].map((k) => k.replace(/^--ph-icon-/, ""));
+  const iconList = [...svgByVarName.keys()].map((k) =>
+    k.replace(/^--ph-icon-/, ""),
+  );
   fs.writeFileSync(
     path.join(docsDir, "icon-list.json"),
     JSON.stringify(iconList.sort(), null, 0),
-    "utf8"
+    "utf8",
   );
 
   // Cleanup (keep zip for debugging: comment out to inspect)

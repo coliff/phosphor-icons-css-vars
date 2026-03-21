@@ -1,3 +1,4 @@
+---
 name: Scorecards supply-chain security
 on:
   branch_protection_rule:
@@ -5,6 +6,10 @@ on:
     - cron: "16 10 * * 6"
   push:
     branches: ["main"]
+
+concurrency:
+  group: scorecard-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions: read-all
 

@@ -6,10 +6,9 @@
  */
 
 import https from "node:https";
-import fs from "node:fs";
+import fs, { createWriteStream } from "node:fs";
 import path from "node:path";
 import { pipeline } from "node:stream/promises";
-import { createWriteStream } from "node:fs";
 import { tmpdir } from "node:os";
 import CleanCSS from "clean-css";
 import { optimize } from "svgo";
@@ -79,7 +78,7 @@ function slugFromPath(entryPath) {
   } else if (weight === "bold") {
     name = name.replace(/\s+bold$/i, "");
   }
-  let slug = name
+  const slug = name
     .toLowerCase()
     .replace(/\s+/g, "-")
     .replace(/[^a-z0-9-]/g, "");
@@ -119,8 +118,8 @@ function openZip(buffer) {
   return new Promise((resolve, reject) => {
     const opt = { lazyEntries: true };
     yauzl.fromBuffer(buffer, opt, (err, zipfile) => {
-      if (err) reject(err);
-      else resolve(zipfile);
+      if (err) {reject(err);}
+      else {resolve(zipfile);}
     });
   });
 }
@@ -248,41 +247,41 @@ async function main() {
   fs.mkdirSync(docsDir, { recursive: true });
 
   const regularCss =
-    ":root {\n" +
-    regular.join("\n") +
-    "\n}\n" +
-    phBase +
-    iconClassRules(regularSlugs);
+    `:root {\n${ 
+    regular.join("\n") 
+    }\n}\n${ 
+    phBase 
+    }${iconClassRules(regularSlugs)}`;
   const fillCss =
-    ":root {\n" +
-    fill.join("\n") +
-    "\n}\n" +
-    phBase +
-    iconClassRules(fillSlugs);
+    `:root {\n${ 
+    fill.join("\n") 
+    }\n}\n${ 
+    phBase 
+    }${iconClassRules(fillSlugs)}`;
   const duotoneCss =
-    ":root {\n" +
-    duotone.join("\n") +
-    "\n}\n" +
-    phBase +
-    iconClassRules(duotoneSlugs);
+    `:root {\n${ 
+    duotone.join("\n") 
+    }\n}\n${ 
+    phBase 
+    }${iconClassRules(duotoneSlugs)}`;
   const thinCss =
-    ":root {\n" +
-    thin.join("\n") +
-    "\n}\n" +
-    phBase +
-    iconClassRules(thinSlugs);
+    `:root {\n${ 
+    thin.join("\n") 
+    }\n}\n${ 
+    phBase 
+    }${iconClassRules(thinSlugs)}`;
   const lightCss =
-    ":root {\n" +
-    light.join("\n") +
-    "\n}\n" +
-    phBase +
-    iconClassRules(lightSlugs);
+    `:root {\n${ 
+    light.join("\n") 
+    }\n}\n${ 
+    phBase 
+    }${iconClassRules(lightSlugs)}`;
   const boldCss =
-    ":root {\n" +
-    bold.join("\n") +
-    "\n}\n" +
-    phBase +
-    iconClassRules(boldSlugs);
+    `:root {\n${ 
+    bold.join("\n") 
+    }\n}\n${ 
+    phBase 
+    }${iconClassRules(boldSlugs)}`;
 
   const files = [
     ["phosphor-icons-regular.css", regularCss, regular.length, "regular"],

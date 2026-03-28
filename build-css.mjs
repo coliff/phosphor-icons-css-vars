@@ -118,8 +118,11 @@ function openZip(buffer) {
   return new Promise((resolve, reject) => {
     const opt = { lazyEntries: true };
     yauzl.fromBuffer(buffer, opt, (err, zipfile) => {
-      if (err) {reject(err);}
-      else {resolve(zipfile);}
+      if (err) {
+        reject(err);
+      } else {
+        resolve(zipfile);
+      }
     });
   });
 }

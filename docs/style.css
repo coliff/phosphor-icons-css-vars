@@ -1,27 +1,27 @@
 :root {
-  font-family: system-ui, sans-serif;
-  line-height: 1.5;
   --bg: #fff;
-  --text: #1a1a1a;
-  --muted: #666;
-  --code-bg: #f0f0f0;
-  --pre-bg: #f5f5f5;
+  --border: #ccc;
   --card-bg: #f9f9f9;
   --card-hover: #eee;
-  --border: #ccc;
-  color: var(--text);
+  --code-bg: #f0f0f0;
+  --muted: #666;
+  --pre-bg: #f5f5f5;
+  --text: #1a1a1a;
   background-color: var(--bg);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
 }
 
 [data-theme="dark"] {
   --bg: #1a1a1a;
-  --text: #e5e5e5;
-  --muted: #a3a3a3;
-  --code-bg: #2d2d2d;
-  --pre-bg: #252525;
+  --border: #525252;
   --card-bg: #2d2d2d;
   --card-hover: #404040;
-  --border: #525252;
+  --code-bg: #2d2d2d;
+  --muted: #a3a3a3;
+  --pre-bg: #252525;
+  --text: #e5e5e5;
 }
 
 body {
@@ -96,9 +96,9 @@ h2 {
 }
 
 .search-wrap {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   gap: 0.75rem;
   margin: 1rem 0;
 }
@@ -162,9 +162,9 @@ h2 {
 }
 
 .style-select[data-open="true"] .style-select__trigger {
+  border-bottom-color: transparent;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-bottom-color: transparent;
 }
 
 .style-select__icon {
@@ -224,8 +224,8 @@ h2 {
 .style-select__list {
   background: var(--bg);
   border: 1px solid var(--border);
-  border-top: 0;
   border-radius: 0 0 6px 6px;
+  border-top: 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   left: 0;
   min-width: 100%;

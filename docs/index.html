@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width" />
   <title>Phosphor Icons – CSS Variables</title>
   <script>
     (function () {
@@ -25,8 +25,8 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <meta name="color-scheme" content="light dark" />
   <meta name="author" content="Christian Oliff" />
-  <meta name="last-modified" content="2026-03-19" />
-  <link rel="canonical" href="https://coliff.github.io/phosphor-css-vars/" />
+  <meta name="last-modified" content="2026-09-27" />
+  <link rel="canonical" href="https://coliff.github.io/phosphor-icons-css-vars/" />
   <link rel="license" href="https://github.com/coliff/phosphor-icons-css-vars/blob/main/LICENSE" />
   <meta name="fediverse:creator" content="@christianoliff@mastodon.social" />
   <meta name="description" content="Test page for Phosphor Icons CSS variables" />
@@ -70,7 +70,7 @@
     <h2 id="how-to-use">How to use</h2>
     <section class="usage">
       <ol>
-        <li>Include one or more stylesheets (regular, fill, and/or duotone):</li>
+        <li>Include one or more stylesheets (regular, fill, duotone, thin, light and/or bold):</li>
       </ol>
       <pre><code class="language-html">&lt;link rel="stylesheet" href="phosphor-icons-regular.css"&gt;
  &lt;link rel="stylesheet" href="phosphor-icons-fill.css"&gt;
@@ -96,13 +96,13 @@
         <strong>As a mask (custom element, icon inherits text color):</strong>
       </p>
       <pre><code class="language-css">.my-icon {
-  width: 24px;
-  height: 24px;
   background-color: currentColor;
+  height: 24px;
   mask-image: var(--ph-icon-heart);
-  mask-size: contain;
   mask-position: center;
   mask-repeat: no-repeat;
+  mask-size: contain;
+  width: 24px;
 }</code></pre>
       <p>
         Example with mask (icon color follows text):
@@ -112,11 +112,12 @@
 
       <p><strong>As a background image:</strong></p>
       <pre><code class="language-css">.my-icon {
-  width: 24px;
-  height: 24px;
   background-image: var(--ph-icon-heart);
-  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 24px;
+  width: 24px;
 }</code></pre>
       <p>
         Example with background image:

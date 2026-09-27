@@ -19,8 +19,8 @@
     "build": "node build-css.mjs",
     "lint": "npm run lint-html && npm run lint-css && npm run lint-js",
     "lint-css": "npx stylelint \"**/*.css\" --fix --formatter verbose",
-    "lint-html": "npx htmlhint **/*.html",
-    "lint-js": "npx eslint@8 **/*.mjs --fix",
+    "lint-html": "npx htmlhint \"**/*.html\"",
+    "lint-js": "npx eslint@8 \"**/*.mjs\" --fix",
     "lint-markdown": "npx markdownlint-cli \"*.md\" --fix",
     "pa11y": "npx pa11y https://coliff.github.io/phosphor-icons-css-vars/",
     "prettier": "npx prettier --write \"**/*.{css,html,js,json,mjs,yml}\"",
@@ -30,9 +30,9 @@
   "devDependencies": {
     "clean-css": "5.3.3",
     "svgo": "4.1.0",
-    "yauzl": "3.3.1"
+    "yauzl": "3.4.0"
   },
   "volta": {
-    "node": "24.14.1"
+    "node": "24.21.0"
   }
 }

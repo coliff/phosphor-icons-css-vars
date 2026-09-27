@@ -27,10 +27,15 @@ function download(url) {
   return new Promise((resolve, reject) => {
     https
       .get(url, (res) => {
-        if (res.statusCode === 302 || res.statusCode === 301) {
-          return download(res.headers.location).then(resolve).catch(reject);
+        if ([301, 302, 303, 307, 308].includes(res.statusCode)) {
+          // Discard the redirect body and resolve relative Location headers
+          res.resume();
+          const next = new URL(res.headers.location, url).toString();
+          download(next).then(resolve).catch(reject);
+          return;
         }
         if (res.statusCode !== 200) {
+          res.resume();
           reject(
             new Error(
               `Download failed: ${res.statusCode} ${res.statusMessage}`,
@@ -237,7 +242,7 @@ async function main() {
   }
 
   const phBase =
-    ".ph {\n  display: inline-block;\n  width: 1em;\n  height: 1em;\n  background-color: currentColor;\n  mask-size: contain;\n  mask-position: center;\n  mask-repeat: no-repeat;\n}\n";
+    ".ph {\n  background-color: currentColor;\n  display: inline-block;\n  height: 1em;\n  mask-position: center;\n  mask-repeat: no-repeat;\n  mask-size: contain;\n  width: 1em;\n}\n";
 
   function iconClassRules(slugs) {
     return slugs
@@ -249,42 +254,15 @@ async function main() {
   const docsDir = path.join(process.cwd(), "docs");
   fs.mkdirSync(docsDir, { recursive: true });
 
-  const regularCss =
-    `:root {\n${ 
-    regular.join("\n") 
-    }\n}\n${ 
-    phBase 
-    }${iconClassRules(regularSlugs)}`;
-  const fillCss =
-    `:root {\n${ 
-    fill.join("\n") 
-    }\n}\n${ 
-    phBase 
-    }${iconClassRules(fillSlugs)}`;
-  const duotoneCss =
-    `:root {\n${ 
-    duotone.join("\n") 
-    }\n}\n${ 
-    phBase 
-    }${iconClassRules(duotoneSlugs)}`;
-  const thinCss =
-    `:root {\n${ 
-    thin.join("\n") 
-    }\n}\n${ 
-    phBase 
-    }${iconClassRules(thinSlugs)}`;
-  const lightCss =
-    `:root {\n${ 
-    light.join("\n") 
-    }\n}\n${ 
-    phBase 
-    }${iconClassRules(lightSlugs)}`;
-  const boldCss =
-    `:root {\n${ 
-    bold.join("\n") 
-    }\n}\n${ 
-    phBase 
-    }${iconClassRules(boldSlugs)}`;
+  const buildCss = (lines, slugs) =>
+    `:root {\n${lines.join("\n")}\n}\n${phBase}${iconClassRules(slugs)}`;
+
+  const regularCss = buildCss(regular, regularSlugs);
+  const fillCss = buildCss(fill, fillSlugs);
+  const duotoneCss = buildCss(duotone, duotoneSlugs);
+  const thinCss = buildCss(thin, thinSlugs);
+  const lightCss = buildCss(light, lightSlugs);
+  const boldCss = buildCss(bold, boldSlugs);
 
   const files = [
     ["phosphor-icons-regular.css", regularCss, regular.length, "regular"],

@@ -9,6 +9,8 @@
 - All GitHub Actions should use SHA-1 pinned versions.
 - All should be formatted with Prettier.
 - If using `actions/checkout`, it should have `persist-credentials: false` set.
+- Use least-privilege `permissions`: set `contents: read` (or `{}`) at the workflow level and grant write scopes only on the jobs that need them.
+- Use `npm install --ignore-scripts` in workflows.
 - GitHub Actions should have a cooldown period of 7 days.
 
 ## Dependabot

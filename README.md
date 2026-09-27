@@ -46,11 +46,13 @@ For custom styling, use the CSS variables directly:
 
 ```css
 .my-icon {
-  width: 24px;
-  height: 24px;
   background-color: currentColor;
+  height: 24px;
   mask-image: var(--ph-icon-heart);
+  mask-position: center;
+  mask-repeat: no-repeat;
   mask-size: contain;
+  width: 24px;
 }
 ```
 

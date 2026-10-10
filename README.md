@@ -3,6 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/phosphor-icons-css-vars.svg)](https://www.npmjs.com/package/phosphor-icons-css-vars)
 [![npm downloads](https://img.shields.io/npm/dm/phosphor-icons-css-vars.svg)](https://www.npmjs.com/package/phosphor-icons-css-vars)
 [![LICENSE: MIT](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE)
+[![Super-Linter](https://github.com/coliff/phosphor-icons-css-vars/actions/workflows/super-linter.yml/badge.svg)](https://github.com/coliff/phosphor-icons-css-vars/actions/workflows/super-linter.yml)
 
 **A 100% pure CSS icon implementation of [Phosphor Icons](https://phosphoricons.com/) using CSS custom properties and SVG masks**
 

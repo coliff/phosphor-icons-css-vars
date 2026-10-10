@@ -38,3 +38,4 @@
 
 - Use meaningful, descriptive branch names that summarize the change, e.g. `fix/canonical-url` or `chore/update-actions-and-deps`. Avoid random or auto-generated names.
 - Keep commits focused and write clear commit messages.
+- Squash each pull request to a single commit. When adding follow-up changes, fold them into that commit and force-push (`--force-with-lease`) instead of stacking new commits.

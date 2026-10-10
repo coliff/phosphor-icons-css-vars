@@ -12,6 +12,10 @@
   },
   "license": "MIT",
   "author": "Christian Oliff (https://christianoliff.com)",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/coliff"
+  },
   "files": [
     "dist"
   ],
